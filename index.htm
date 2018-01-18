@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<head>
+<meta  content='text/html; charset=utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+section {display: inline-block;}
+input[type=checkbox] { display: block; opacity: 0;}
+label {width: 30px;height: 60px;cursor: pointer;display: inline-block; position: relative;background: rgb(189, 189, 189);border-radius: 30px;transition: background-color 0.4s;-moz-transition: background-color 0.4s;-webkit-transition: background-color 0.4s;}
+label:after {left: 0;width: 20px; height: 20px; margin: 5px;content: ''; position: absolute;background: #FFF; border-radius: 10px;}
+input:checked + label {background: rgb(39, 173, 95);}
+input:checked + label:after {left: 0;bottom: 0;}
+p {font: normal 8px/40px Arial;color: rgb(189, 189, 189);display: none;text-transform: uppercase;letter-spacing: 1px;}
+input[type=checkbox]:checked ~ p:nth-of-type(1) {color: rgb(39, 173, 95);display: block;}
+input[type=checkbox]:not(:checked) ~ p:nth-of-type(2) { display: block;}
+#centDiv {margin:0 auto; text-align: center;}
+input[type=radio][class="IOT"]:unchecked ~ #iot{display: none;}
+input[type=radio][class="IOT"]:checked ~ #iot{display: block;}
+#iot{display: none;}
+input[type=radio][class="leds"]:unchecked ~ #leds{display: none;}
+input[type=radio][class="leds"]:checked ~ #leds{display: block;}
+#leds{display: none;}
+</style>
+</head>  
+<html>
+ <body> <div id="centDiv"><h1>Led Controller</h1></div>
+<form id='Loopform' method='post' action='/' >
+<fieldset><legend>Colour</legend>
+<dl>
+Red:<input required  style="width:calc(100% - 99px);" type='range' min='0' max='255' name='r' id='r' value='0' oninput='rVal.value=r.value'> <output name='rVal' id='rVal'></output>
+<br>Green:<input required  style="width:calc(100% - 110px);" type='range' min='0' max='255' name='g' id='g' value='0' oninput='gVal.value=g.value'> <output name='gVal' id='gVal'></output>
+<br>Blue:<input required style="width:calc(100% - 100px);" type='range' min='0' max='255' name='b' id='b' value='0' oninput='bVal.value=b.value'> <output name='bVal' id='bVal'></output>
+</dl>
+<div id='colchoice'></div>
+</fieldset>
+<fieldset><legend>Speed (ms)</legend>
+Speed Fast <input style="width:calc(100% - 180px);" type='range' min='50' max='2000' name='s' id='s' value='0' oninput='sVal.value=s.value'>Slow <output name='sVal' id='sVal'></output><br>        
+</fieldset>
+<fieldset><legend>Direction</legend>
+<div id="centDiv">
+<input type='radio' name='d' value=1/>Anti-Clockwise
+<input type='radio' name='d' value=2 checked="checked" />ClockWise<br>
+</div>
+</fieldset>
+<fieldset ><legend>Mode</legend>
+<div id="centDiv">
+<input type='radio' name='c' value='Loop' id='Loop' checked="checked" />Loop
+<input type='radio' name='c' value='Fade' id='Fade' class='leds' />Fade
+<input type='radio' name='c' value='Light'id='Light'class='leds' />Light<br>
+<input type='radio' name='c' value='Step' id='Step' class='leds'/>Step
+<input type='radio' name='c' value='IOT'  id='IOT' class='IOT'/>IOT
+<input type='radio' name='c' value='Stop' id='Stop'/>Stop
+<div id="leds">
+<div id="centDiv">
+<br>Individual LED Control<br>
+<section>   
+  <input type="checkbox" id="L1" name="L1"/> 
+  <label for="L1"></label>
+  <p>Led1:On</p>
+  <p>Led1:Off</p>
+</section>
+<section>
+  <input type="checkbox" id="L2" name="L2"/>
+  <label for="L2"></label>
+  <p>Led2:On</p>
+  <p>Led2:Off</p>
+</section>
+<section>
+  <input type="checkbox" id="L3" name="L3"/>
+  <label for="L3"></label>
+  <p>Led3:On</p>
+  <p>Led3:Off</p>
+</section>
+<section>
+  <input type="checkbox" id="L4" name="L4"/>
+  <label for="L4"></label>
+  <p>Led4:On</p>
+  <p>Led4:Off</p>
+</section>
+<section>
+  <input type="checkbox" id="L5" name="L5"/>
+  <label for="L5"></label>
+  <p>Led5:On</p>
+  <p>Led5:Off</p>
+</section>
+<section>
+  <input type="checkbox" id="L6" name="L6"/>
+  <label for="L6"></label>
+  <p>Led6:On</p>
+  <p>Led6:Off</p>
+</section><br>
+<section>
+  <input type="checkbox" id="L7" name="L7"/>
+  <label for="L7"></label>
+  <p>Led7:On</p>
+  <p>Led7:Off</p>
+</section>
+<section>
+  <input type="checkbox" id="L8" name="L8"/>
+  <label for="L8"></label>
+  <p>Led8:On</p>
+  <p>Led8:Off</p>
+</section>
+<section>
+  <input type="checkbox" id="L9" name="L9"/>
+  <label for="L9"></label>
+  <p>Led9:On</p>
+  <p>Led9:Off</p>
+</section>
+<section>
+  <input type="checkbox" id="L10" name="L10"/>
+  <label for="L10"></label>
+  <p>Led10:On</p>
+  <p>Led10:Off</p>
+</section>
+<section>
+  <input type="checkbox" id="L11" name="L11"/>
+  <label for="L11"></label>
+  <p>Led11:On</p>
+  <p>Led11:Off</p>
+</section>
+<section>
+  <input type="checkbox" id="L12" name="L12"/>
+  <label for="L12"></label>
+  <p>Led12:On</p>
+  <p>Led12:Off</p>
+</section>
+
+</div> 
+</div>
+
+ 
+<div id="iot">
+<p> Enter your WIFI SSID and password </p>
+<br> WIFI SSID  <input type="text" name="ssid"><br>
+<br> WIFI Password <input type="password" name="pwd"><br>
+<br> Location <input type="text" name="loc"><br>
+<br> Country Code <input type="text" name="ccode"><br>
+<input type='radio' name='show' value='Time' id='Time' checked="checked"/>Time
+<input type='radio' name='show' value='Temp' id='Temp' />Temp
+</div>
+
+</div>
+
+<div id="centDiv"><br><button>Do it</button></div>
+</form>
+
+</body></html>
